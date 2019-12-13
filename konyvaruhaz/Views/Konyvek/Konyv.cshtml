@@ -1,0 +1,18 @@
+﻿@model konyvaruhaz.Models.Konyv
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2>Konyvek:</h2>
+<br />
+
+<div class="container">
+    <div class="row">
+        @foreach (var f in Model)
+        {
+            @Html.Partial("_Kartya", f)
+        }
+    </div>
+</div>

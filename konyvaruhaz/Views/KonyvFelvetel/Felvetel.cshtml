@@ -1,0 +1,40 @@
+﻿@model konyvaruhaz.Models.KonyvFormViewModel
+@{
+    ViewBag.Title = "Uj";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h2>Új könyv hozzáadása</h2>
+<br />
+@using (Html.BeginForm("Mentes", "Ugyfelek"))
+{
+    /* @Html.ValidationSummary() */
+    <div class="form-group">
+        @*<label for="Cim">Cím</label>*@
+        @Html.LabelFor(m => m.Konyv.Cim)
+        @Html.TextBoxFor(m => m.Konyv.Cim, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Konyv.Cim)
+    </div>
+    <div class="form-group">
+        @*<label for="Szerzo">Szerző</label>*@
+        @Html.LabelFor(m => m.Konyv.Szerzo)
+        @Html.TextBoxFor(m => m.Konyv.Szerzo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Konyv.Szerzo)
+    </div>
+    <div class="form-group">
+        @*<label for="Kategoria">Kategória</label>*@
+        @Html.LabelFor(m => m.Konyv.Kategoria)
+        @Html.TextBoxFor(m => m.Konyv.Kategoria, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Konyv.Kategoria)
+    </div>
+
+
+    @Html.HiddenFor(m => m.Konyv.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Új könyv felvétele</button>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

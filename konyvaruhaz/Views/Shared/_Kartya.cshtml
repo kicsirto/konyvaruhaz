@@ -1,0 +1,35 @@
+﻿@model konyvaruhaz.Models.Konyv
+
+<div class="col-sm-4">
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="~/Content/Imgs/@(Model.Kep)" class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Cim</h5>
+
+                    <p class="card-text">
+                        @for (int i = 0; i < Model.Kategoria.Length; i++)
+                        {
+                            @Html.ActionLink($"{Model.Kategoria[i]}", "Kategóriák", new { mufaj = Model.Kategoria[i] })
+                            if (i != Model.Kategoria.Length - 1)
+                            {<text>, </text>}
+                    }
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="row">
+                <div class="col">
+                    <button type="button" class="btn btn-sm btn-primary btn-block">Kölcsönzés</button>
+                </div>
+             
+            </div>
+
+        </div>
+    </div>
+</div>
